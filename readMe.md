@@ -6,7 +6,7 @@ install dependencies
 `pip install -r requirements.txt`  
 
 run app  
-`python flask.py`  
+`python tiny.py`  
 
 run test and coverage.  
 `coverage run test.py -v;coverage report`  

@@ -1,0 +1,7 @@
+*.pyc
+.vscode
+.DS*
+.coverage
+site.db
+venv/
+__pycache__/

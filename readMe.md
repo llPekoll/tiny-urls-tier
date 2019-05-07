@@ -1,8 +1,8 @@
 tier.app
 --------
-Let's make Tinys URLS
+Let's make Tinys URLS  
 
-install dependencies
+install dependencies  
 `pip install -r requirements.txt`  
 
 run app  

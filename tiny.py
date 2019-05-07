@@ -40,16 +40,6 @@ class Visit(db.Model):
         return '<Visists NB => url: {} | tiny_Url: {}>'.format(self.url_request_number, self.tiny_visit_number)
 
 
-def init_visit():
-    """
-    small init for visits
-    """
-    visits = Visit.query.all()
-    if not visits:
-        v = Visit(url_request_number=0, tiny_visit_number=0)
-        db.session.add(v)
-        db.session.commit()
-
 
 # views
 @app.route("/<url_long>")
@@ -92,6 +82,17 @@ def tiny_to_long(url_tiny):
         return "no connection with that tiny url, please give us another one"
 
 # utils
+def init_visit():
+    """
+    small init for visits
+    """
+    visits = Visit.query.all()
+    if not visits:
+        v = Visit(url_request_number=0, tiny_visit_number=0)
+        db.session.add(v)
+        db.session.commit()
+
+
 def tiny_url_generator():
     """
     Generates tiny urls from UUID,

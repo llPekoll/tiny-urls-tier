@@ -99,21 +99,32 @@ def tiny_url_generator():
     Returns:
         String -> ex:Go4DfeX2
     """
-    uuid_string = str(uuid.uuid4())
-    hash_base = uuid_string[:8]
-    improved_uuid = ''
-    for char in hash_base:
-        if not char.isalpha():
-            improved_uuid += char
-        else:
-            upper_or_lower = random.randint(0, 10)
-            rand_letter = random.randint(0, 25)
-            if upper_or_lower > 5:
-                remapped_letter = string.ascii_lowercase[rand_letter]
-            else:
-                remapped_letter = string.ascii_uppercase[rand_letter]
-            improved_uuid += remapped_letter
-    return improved_uuid
+    # add a check to avoid to get just numbers
+    numbers = [x for x in range(10)]
+    letters = string.ascii_uppercase + string.ascii_lowercase
+    all_char = [numbers,letters]
+    tiny_string = ''
+    for x in range(9):
+        tiny_string += str(choice(all_char[randint(0,1)]))
+    
+    return tiny_string
+
+    # old version a bit less smart but UUID will somehow assure us to avoid just numbers
+    # uuid_string = str(uuid.uuid4())
+    # hash_base = uuid_string[:8]
+    # improved_uuid = ''
+    # for char in hash_base:
+    #     if not char.isalpha():
+    #         improved_uuid += char
+    #     else:
+    #         upper_or_lower = random.randint(0, 10)
+    #         rand_letter = random.randint(0, 25)
+    #         if upper_or_lower > 5:
+    #             remapped_letter = string.ascii_lowercase[rand_letter]
+    #         else:
+    #             remapped_letter = string.ascii_uppercase[rand_letter]
+    #         improved_uuid += remapped_letter
+    # return improved_uuid
 
 
 if __name__ == "__main__":

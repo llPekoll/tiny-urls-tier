@@ -95,7 +95,8 @@ def init_visit():
 
 def tiny_url_generator():
     """
-    Generates tiny urls from UUID,
+    Generates tiny urls from without UUID less efficient somehow,
+    a mix of the two version would be nice
     Returns:
         String -> ex:Go4DfeX2
     """

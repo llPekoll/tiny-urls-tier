@@ -1,7 +1,7 @@
 #!/usr/local/bin/python
 import uuid
 import string
-import random
+from random import choice, randint, choices
 # could also use this way to generate tiny urls
 from werkzeug.security import generate_password_hash
 from flask import Flask
@@ -95,22 +95,16 @@ def init_visit():
 
 def tiny_url_generator():
     """
-    Generates tiny urls from without UUID less efficient somehow,
-    a mix of the two version would be nice
+    Generates tiny url,
     Returns:
         String -> ex:Go4DfeX2
     """
-    # add a check to avoid to get just numbers
-    numbers = [x for x in range(10)]
-    letters = string.ascii_uppercase + string.ascii_lowercase
-    all_char = [numbers,letters]
     tiny_string = ''
     for x in range(9):
-        tiny_string += str(choice(all_char[randint(0,1)]))
-    
+        tiny_string += choices(population=(choice(string.printable[:10]), choice(string.printable[10:62])), weights=[0.4, 0.6], k=1)[0]
     return tiny_string
 
-    # old version a bit less smart but UUID will somehow assure us to avoid just numbers
+    # feels like uudi are nice
     # uuid_string = str(uuid.uuid4())
     # hash_base = uuid_string[:8]
     # improved_uuid = ''

@@ -101,7 +101,7 @@ def tiny_url_generator():
     """
     tiny_string = ''
     for x in range(9):
-        tiny_string += choices(population=(choice(string.printable[:10]), choice(string.printable[10:62])), weights=[0.4, 0.6], k=1)[0]
+        tiny_string += choices(population=(choice(string.printable[:10]), choice(string.printable[10:62])), weights=[0.4, 0.6], k=8)[0]
     return tiny_string
 
     # feels like uudi are nice
